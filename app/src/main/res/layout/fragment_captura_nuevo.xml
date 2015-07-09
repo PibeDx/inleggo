@@ -1,0 +1,120 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jcuentas.inleggo.CapturaNuevoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/hello_blank_fragment" />-->
+
+
+    <!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content">-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+
+        <!--sp tipo de captura-->
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/sp_tipo_captura"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:ms_hint="@string/hint_tipo_captura" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </Spinner>
+        <!--fe fecha-->
+        <!--ed_numero numero-->
+        <!--sp sede-->
+        <!--sp gerencia-->
+        <!--sp area-->
+        <!--sp equipo-->
+        <!--sp local-->
+        <!--sp piso-->
+        <!--sp ubicacion-->
+        <!--sp usuario-->
+        <!--sp proyecto-->
+        <!--btn cancelar guardar nueva-->
+
+        <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:id="@+id/til_nombre"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="@string/first_name" />-->
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+        <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:id="@+id/til_apellido"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<EditText-->
+
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:hint="@string/last_name" />-->
+        <!--</android.support.design.widget.TextInputLayout>-->
+
+        <!--<android.support.design.widget.FloatingActionButton-->
+
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/abc_ic_clear_mtrl_alpha">-->
+
+        <!--</android.support.design.widget.FloatingActionButton>-->
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/spinner1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:ms_arrowColor="#0000FF"
+            app:ms_arrowSize="16dp"
+            app:ms_floatingLabelColor="#00FF00"
+            app:ms_floatingLabelText="floating label"
+            app:ms_hint="hint"
+            app:ms_multiline="true" />
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/spinner2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:ms_hint="hint" />
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/spinner3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/spinner4"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:ms_alignLabels="false"
+            app:ms_baseColor="@color/spinner_base_color"
+            app:ms_multiline="false" />
+
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/spinner5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <!--</ScrollView>-->
+
+
+</FrameLayout>
