@@ -12,109 +12,134 @@
     <!--android:text="@string/hello_blank_fragment" />-->
 
 
-    <!--<ScrollView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content">-->
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content">
 
-        android:orientation="vertical">
-
-        <!--sp tipo de captura-->
-
-        <fr.ganfra.materialspinner.MaterialSpinner
-            android:id="@+id/sp_tipo_captura"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            app:ms_hint="@string/hint_tipo_captura" />
-
-        <Spinner
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        </Spinner>
-        <!--fe fecha-->
-        <!--ed_numero numero-->
-        <!--sp sede-->
-        <!--sp gerencia-->
-        <!--sp area-->
-        <!--sp equipo-->
-        <!--sp local-->
-        <!--sp piso-->
-        <!--sp ubicacion-->
-        <!--sp usuario-->
-        <!--sp proyecto-->
-        <!--btn cancelar guardar nueva-->
+            <!--sp tipo de captura-->
 
-        <!--<android.support.design.widget.TextInputLayout-->
-        <!--android:id="@+id/til_nombre"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:id="@+id/sp_tipo_captura"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:ms_hint="@string/hint_tipo_captura" />
 
-        <!--<EditText-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:hint="@string/first_name" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
+            <!--fe fecha-->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_fecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <!--<android.support.design.widget.TextInputLayout-->
-        <!--android:id="@+id/til_apellido"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content">-->
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_fecha" />
+            </android.support.design.widget.TextInputLayout>
+            <!--ed_numero numero-->
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/til_numero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <!--<EditText-->
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_numero" />
+            </android.support.design.widget.TextInputLayout>
+            <!--sp sede-->
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:id="@+id/sp_tipo_sede"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:ms_hint="@string/hint_tipo_sede" />
+            <!--sp gerencia-->
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:id="@+id/sp_tipo_gerencia"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:ms_hint="@string/hint_tipo_gerencia" />
+            <!--sp area-->
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:id="@+id/sp_tipo_area"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:ms_hint="@string/hint_tipo_area" />
+            <!--sp equipo-->
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:id="@+id/sp_tipo_equipo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:ms_hint="@string/hint_tipo_equipo" />
+            <!--sp local-->
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:id="@+id/sp_tipo_local"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:ms_hint="@string/hint_tipo_local" />
+            <!--sp piso-->
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:id="@+id/sp_tipo_piso"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:ms_hint="@string/hint_tipo_piso" />
+            <!--sp ubicacion-->
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:id="@+id/sp_tipo_ubicacion"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:ms_hint="@string/hint_tipo_ubicacion" />
+            <!--sp usuario-->
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:id="@+id/sp_tipo_usuario"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:ms_hint="@string/hint_tipo_usuario" />
+            <!--sp proyecto-->
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:id="@+id/sp_tipo_proyecto"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:ms_hint="@string/hint_tipo_proyecto" />
+            <!--btn cancelar guardar nueva-->
 
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:hint="@string/last_name" />-->
-        <!--</android.support.design.widget.TextInputLayout>-->
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fabtn_guardar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/abc_ic_clear_mtrl_alpha" />
 
-        <!--<android.support.design.widget.FloatingActionButton-->
+            <!--</android.support.design.widget.FloatingActionButton>-->
 
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:src="@drawable/abc_ic_clear_mtrl_alpha">-->
+            <!--<android.support.design.widget.TextInputLayout-->
+            <!--android:id="@+id/til_apellido"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
 
-        <!--</android.support.design.widget.FloatingActionButton>-->
+            <!--<EditText-->
 
-        <fr.ganfra.materialspinner.MaterialSpinner
-            android:id="@+id/spinner1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            app:ms_arrowColor="#0000FF"
-            app:ms_arrowSize="16dp"
-            app:ms_floatingLabelColor="#00FF00"
-            app:ms_floatingLabelText="floating label"
-            app:ms_hint="hint"
-            app:ms_multiline="true" />
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:hint="@string/last_name" />-->
+            <!--</android.support.design.widget.TextInputLayout>-->
 
-        <fr.ganfra.materialspinner.MaterialSpinner
-            android:id="@+id/spinner2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            app:ms_hint="hint" />
+            <fr.ganfra.materialspinner.MaterialSpinner
+                android:id="@+id/spinner1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:ms_arrowColor="#0000FF"
+                app:ms_arrowSize="16dp"
+                app:ms_floatingLabelColor="#00FF00"
+                app:ms_floatingLabelText="floating label"
+                app:ms_hint="hint"
+                app:ms_multiline="true" />
 
-        <fr.ganfra.materialspinner.MaterialSpinner
-            android:id="@+id/spinner3"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-
-        <fr.ganfra.materialspinner.MaterialSpinner
-            android:id="@+id/spinner4"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            app:ms_alignLabels="false"
-            app:ms_baseColor="@color/spinner_base_color"
-            app:ms_multiline="false" />
-
-        <fr.ganfra.materialspinner.MaterialSpinner
-            android:id="@+id/spinner5"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-    <!--</ScrollView>-->
+        </LinearLayout>
+    </ScrollView>
 
 
 </FrameLayout>

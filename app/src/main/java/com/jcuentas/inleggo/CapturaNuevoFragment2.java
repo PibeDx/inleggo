@@ -12,25 +12,23 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.jcuentas.inleggo.data.model.Ribot;
-import com.jcuentas.inleggo.data.remote.RibotsAdapter;
+import com.jcuentas.inleggo.data.remote.RibotsImpl;
+import com.jcuentas.inleggo.view.RibotView;
 
 import java.util.List;
 
 import fr.ganfra.materialspinner.MaterialSpinner;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link CapturaNuevoFragment.OnFragmentInteractionListener} interface
+ * {@link CapturaNuevoFragment2.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link CapturaNuevoFragment#newInstance} factory method to
+ * Use the {@link CapturaNuevoFragment2#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CapturaNuevoFragment extends Fragment implements Callback<List<Ribot>>{
+public class CapturaNuevoFragment2 extends Fragment  implements RibotView {
 
     public static final String TAG = "CapturaNuevoFragment";
     // TODO: Rename parameter arguments, choose names that match
@@ -44,6 +42,9 @@ public class CapturaNuevoFragment extends Fragment implements Callback<List<Ribo
     private MaterialSpinner mspTipoCaptura;
     private Spinner spTest1;
 
+    RibotsImpl ribots;
+
+
     private OnFragmentInteractionListener mListener;
 
     /**
@@ -55,8 +56,8 @@ public class CapturaNuevoFragment extends Fragment implements Callback<List<Ribo
      * @return A new instance of fragment CapturaNuevoFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CapturaNuevoFragment newInstance(String param1, String param2) {
-        CapturaNuevoFragment fragment = new CapturaNuevoFragment();
+    public static CapturaNuevoFragment2 newInstance(String param1, String param2) {
+        CapturaNuevoFragment2 fragment = new CapturaNuevoFragment2();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +65,7 @@ public class CapturaNuevoFragment extends Fragment implements Callback<List<Ribo
         return fragment;
     }
 
-    public CapturaNuevoFragment() {
+    public CapturaNuevoFragment2() {
         // Required empty public constructor
     }
 
@@ -118,17 +119,27 @@ public class CapturaNuevoFragment extends Fragment implements Callback<List<Ribo
     @Override
     public void onResume() {
         super.onResume();
-        RibotsAdapter.getApiServiceJC().getRibots(this);
-    }
-
-    @Override
-    public void failure(RetrofitError error) {
+        ribots = new RibotsImpl(this);
 
     }
 
     @Override
-    public void success(List<Ribot> ribots, Response response) {
-        Log.d(TAG,"cantidad: "+ribots.size());
+    public void setMensaje(String mensaje) {
+        Log.d(TAG, mensaje);
+    }
+
+    @Override
+    public void setSp1(List list) {
+        String[] ITEMS = new String[list.size()];
+        List<Ribot> lista = list;
+        int i=0;
+        for (Ribot ribot : lista) {
+            ITEMS[i]=lista.get(i).id;
+            i++;
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, ITEMS);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mspTipoCaptura.setAdapter(adapter);
     }
 
     /**
@@ -143,7 +154,7 @@ public class CapturaNuevoFragment extends Fragment implements Callback<List<Ribo
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(Uri uri);
     }
 
 }

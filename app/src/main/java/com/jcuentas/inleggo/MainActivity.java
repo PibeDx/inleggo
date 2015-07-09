@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends ActionBarActivity implements CapturaNuevoFragment.OnFragmentInteractionListener {
+public class MainActivity extends ActionBarActivity implements CapturaNuevoFragment2.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +16,12 @@ public class MainActivity extends ActionBarActivity implements CapturaNuevoFragm
         setContentView(R.layout.activity_main);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
+//        fragmentManager.beginTransaction()
+//                .add(R.id.main_container, CapturaNuevoFragment.newInstance("asd", "asd"))
+//                .commit();
+
         fragmentManager.beginTransaction()
-                .add(R.id.main_container, CapturaNuevoFragment.newInstance("asd", "asd"))
+                .add(R.id.main_container, CapturaNuevoFragment2.newInstance("asd", "asd"))
                 .commit();
     }
 

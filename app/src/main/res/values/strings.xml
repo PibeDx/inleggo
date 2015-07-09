@@ -10,6 +10,18 @@
     <string name="first_name">Primer Nombre</string>
     <string name="last_name">Apellidos</string>
     <string name="hint_tipo_captura">Tipo de captura</string>
+    <string name="hint_fecha">Fecha</string>
+    <string name="hint_numero">Numero</string>
+    <string name="hint_tipo_sede">Tipo Sede</string>
+    <string name="hint_tipo_gerencia">Gerencia</string>
+    <string name="hint_tipo_area">Area</string>
+    <string name="hint_tipo_equipo">Equipo</string>
+    <string name="hint_tipo_local">Local</string>
+    <string name="hint_tipo_piso">Piso</string>
+    <string name="hint_tipo_ubicacion">Ubicacion</string>
+    <string name="hint_tipo_usuario">Usuario</string>
+    <string name="hint_tipo_proyecto">Proyecto</string>
+
     <string-array name="values">
         <item>test</item>
         <item>test</item>
