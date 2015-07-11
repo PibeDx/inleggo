@@ -14,15 +14,15 @@ public class MainActivity extends ActionBarActivity implements CapturaNuevoFragm
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        if (savedInstanceState == null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
 //        fragmentManager.beginTransaction()
 //                .add(R.id.main_container, CapturaNuevoFragment.newInstance("asd", "asd"))
 //                .commit();
-
-        fragmentManager.beginTransaction()
-                .add(R.id.main_container, CapturaNuevoFragment2.newInstance("asd", "asd"))
-                .commit();
+            fragmentManager.beginTransaction()
+                    .add(R.id.main_container, CapturaNuevoFragment2.newInstance("asd", "asd"))
+                    .commit();
+        }
     }
 
     @Override

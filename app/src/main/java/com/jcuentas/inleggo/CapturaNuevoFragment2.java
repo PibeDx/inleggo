@@ -39,7 +39,7 @@ public class CapturaNuevoFragment2 extends Fragment  implements RibotView {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private MaterialSpinner mspTipoCaptura;
+    private MaterialSpinner mspTipoCaptura, mspTipoSede, mspTipoGerencia, mspTipoArea, mspTipoEquipo, mspTipoLocal, mspTipoPiso, mspTipoUbicacion, mspTipoUsuario, mspTipoProyecto;
     private Spinner spTest1;
 
     RibotsImpl ribots;
@@ -87,9 +87,37 @@ public class CapturaNuevoFragment2 extends Fragment  implements RibotView {
         String[] ITEMS = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, ITEMS);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mspTipoCaptura= (MaterialSpinner)root.findViewById(R.id.sp_tipo_captura);
-        mspTipoCaptura.setAdapter(adapter);
+
+        inicializaVariables(root);
+//        mspTipoCaptura= (MaterialSpinner)root.findViewById(R.id.sp_tipo_captura);
+        mspTipoCaptura.setAdapter(createAdapter(R.array.ar_tipo_captura));
+        mspTipoSede.setAdapter(createAdapter(R.array.ar_tipo_sede));
+        mspTipoGerencia.setAdapter(createAdapter(R.array.ar_tipo_gerencia));
+        mspTipoArea.setAdapter(createAdapter(R.array.ar_tipo_area));
+        mspTipoEquipo.setAdapter(createAdapter(R.array.ar_tipo_equipo));
+        mspTipoLocal.setAdapter(createAdapter(R.array.ar_tipo_local));
+        mspTipoPiso.setAdapter(createAdapter(R.array.ar_tipo_piso));
+        mspTipoUbicacion.setAdapter(createAdapter(R.array.ar_tipo_ubicacion));
+        mspTipoUsuario.setAdapter(createAdapter(R.array.ar_tipo_usuario));
+        mspTipoProyecto.setAdapter(createAdapter(R.array.ar_tipo_proyecto));
+
+
+
+
         return root;
+    }
+
+    private void inicializaVariables(View root) {
+        mspTipoCaptura= (MaterialSpinner)root.findViewById(R.id.sp_tipo_captura);
+        mspTipoSede= (MaterialSpinner)root.findViewById(R.id.sp_tipo_sede);
+        mspTipoGerencia= (MaterialSpinner)root.findViewById(R.id.sp_tipo_gerencia);
+        mspTipoArea= (MaterialSpinner)root.findViewById(R.id.sp_tipo_area);
+        mspTipoEquipo= (MaterialSpinner)root.findViewById(R.id.sp_tipo_equipo);
+        mspTipoLocal= (MaterialSpinner)root.findViewById(R.id.sp_tipo_local);
+        mspTipoPiso= (MaterialSpinner)root.findViewById(R.id.sp_tipo_piso);
+        mspTipoUbicacion= (MaterialSpinner)root.findViewById(R.id.sp_tipo_ubicacion);
+        mspTipoUsuario= (MaterialSpinner)root.findViewById(R.id.sp_tipo_usuario);
+        mspTipoProyecto= (MaterialSpinner)root.findViewById(R.id.sp_tipo_proyecto);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -140,6 +168,14 @@ public class CapturaNuevoFragment2 extends Fragment  implements RibotView {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, ITEMS);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mspTipoCaptura.setAdapter(adapter);
+    }
+
+
+    private ArrayAdapter<CharSequence> createAdapter(int resource){
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                getActivity(), resource, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        return adapter;
     }
 
     /**

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">inleggo</string>
+    <string name="app_name">Inleggo</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -22,10 +22,80 @@
     <string name="hint_tipo_usuario">Usuario</string>
     <string name="hint_tipo_proyecto">Proyecto</string>
 
-    <string-array name="values">
-        <item>test</item>
-        <item>test</item>
-        <item>test</item>
-        <item>test</item>
+    <!--ARRAYS-->
+
+    <string-array name="ar_tipo_captura">
+        <item>Bien</item>
+        <item>Maquinaria</item>
+        <item>Vehículo</item>
+    </string-array>
+    <string-array name="ar_tipo_sede">
+        <item>CENECP - Callao</item>
+        <item>Sede central</item>
+    </string-array>
+    <string-array name="ar_tipo_gerencia">
+        <item>Centro Nacional de Estudios Criminológicos y Penitenciarios</item>
+        <item>Dirección de Medio Libre</item>
+        <item>Dirección de Registro Penitenciario</item>
+        <item>Dirección de Seguridad Penitenciaria</item>
+    </string-array>
+    <string-array name="ar_tipo_area">
+        <item>Centro Nacional de Estudios Criminológicos y Penitenciarios</item>
+    </string-array>
+    <string-array name="ar_tipo_equipo">
+        <item>Centro Nacional de Estudios Criminológicos y Penitenciarios</item>
+    </string-array>
+    <string-array name="ar_tipo_local">
+        <item>Local 1</item>
+        <item>Local 2</item>
+        <item>Local 3</item>
+        <item>Local 4</item>
+    </string-array>
+    <string-array name="ar_tipo_piso">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+    </string-array>
+    <string-array name="ar_tipo_ubicacion">
+        <item>Repisa 1</item>
+        <item>Repisa 2</item>
+        <item>Repisa 3</item>
+        <item>Repisa 4</item>
+    </string-array>
+    <string-array name="ar_tipo_usuario">
+        <item>José Norberto Cuentas Turpo</item>
+        <item>Joseph Urbina</item>
+        <item>Pepe Felix</item>
+        <item>Julieta Romero</item>
+    </string-array>
+    <string-array name="ar_tipo_proyecto">
+        <item>Ninguno</item>
     </string-array>
 </resources>
