@@ -21,6 +21,18 @@
     <string name="hint_tipo_ubicacion">Ubicacion</string>
     <string name="hint_tipo_usuario">Usuario</string>
     <string name="hint_tipo_proyecto">Proyecto</string>
+    <string name="hint_nombre">Nombre</string>
+    <string name="text_gerencias">Gerencias</string>
+    <string name="text_gerencias_mensaje">Las gerencias son la parte más alta del organigrama, en lagunas instituciones cambia de nombre a oficinas o intendencias.</string>
+    <string name="nav_home">Inicio</string>
+    <string name="nav_captura">Captura</string>
+    <string name="nav_captura_nuevo">Nuevo</string>
+    <string name="nav_captura_organigrama">Organigrama</string>
+    <string name="nav_captura_organigrama_gerencia">Gerencia</string>
+    <string name="nav_captura_organigrama_area">Area</string>
+    <string name="nav_captura_organigrama_equipo">Equipo</string>
+    <string name="name_navdrawer">José Cuentas Turpo</string>
+    <string name="email_navdrawer">jcuentast@gmail.com</string>
 
     <!--ARRAYS-->
 

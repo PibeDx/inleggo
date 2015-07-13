@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+
+            android:icon="@drawable/ic_home"
+            android:title="@string/nav_home" />
+        <!--android:checked="true"-->
+
+        <item
+            android:id="@+id/nav_captura"
+            android:title="@string/nav_captura">
+            <menu>
+                <item
+                    android:id="@+id/nav_captura_nuevo"
+                    android:icon="@android:drawable/ic_lock_power_off"
+                    android:title="@string/nav_captura_nuevo" />
+
+            </menu>
+        </item>
+        <item
+            android:id="@+id/nav_captura_organigrama"
+            android:title="@string/nav_captura_organigrama">
+            <menu>
+
+                <item
+                    android:id="@+id/nav_captura_organigrama_gerencia"
+
+                    android:icon="@android:drawable/ic_lock_power_off"
+                    android:title="@string/nav_captura_organigrama_gerencia" />
+                <item
+                    android:id="@+id/nav_captura_organigrama_area"
+                    android:icon="@android:drawable/ic_lock_power_off"
+                    android:title="@string/nav_captura_organigrama_area" />
+                <item
+                    android:id="@+id/nav_captura_organigrama_equipo"
+                    android:icon="@android:drawable/ic_lock_power_off"
+                    android:title="@string/nav_captura_organigrama_equipo" />
+
+            </menu>
+        </item>
+    </group>
+</menu>

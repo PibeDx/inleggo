@@ -19,8 +19,13 @@ public class MainActivity extends ActionBarActivity implements CapturaNuevoFragm
 //        fragmentManager.beginTransaction()
 //                .add(R.id.main_container, CapturaNuevoFragment.newInstance("asd", "asd"))
 //                .commit();
+            //Use actual
+//            fragmentManager.beginTransaction()
+//                    .add(R.id.main_container, CapturaNuevoFragment2.newInstance("asd", "asd"))
+//                    .commit();
+
             fragmentManager.beginTransaction()
-                    .add(R.id.main_container, CapturaNuevoFragment2.newInstance("asd", "asd"))
+                    .add(R.id.main_container, CapOrgGerenciaFragment.newInstance(1))
                     .commit();
         }
     }

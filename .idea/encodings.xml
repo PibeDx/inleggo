@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jcuentas/inleggo/data/db/DBHelper.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jcuentas/inleggo/data/db/dao/BaseDao.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jcuentas/inleggo/data/db/dao/GrupoDao.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jcuentas/inleggo/data/db/dao/UsuarioDao.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jcuentas/inleggo/data/model/Grupo.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/jcuentas/inleggo/data/model/Ribot.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/jcuentas/inleggo/data/model/Usuario.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-mdpi" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xhdpi" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi" charset="windows-1252" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
