@@ -73,7 +73,8 @@ private String drawerTitle;
                 fragment = CapOrgGerenciaFragment.newInstance(3);
                 break;
             case R.id.nav_captura_nuevo:
-                fragment = CapturaNuevoFragment2.newInstance("","");
+//                fragment = CapturaNuevoFragment2.newInstance("","");
+                fragment = CapOrgGerenciaListaFragment.newInstance();
                 break;
             default:
                 fragment = CapturaNuevoFragment2.newInstance("","");
