@@ -1,7 +1,6 @@
-package com.jcuentas.inleggo;
+package com.jcuentas.inleggo.ui.activity;
 
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -9,12 +8,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.jcuentas.inleggo.ui.fragment.CapOrgGerenciaFragment;
+import com.jcuentas.inleggo.ui.fragment.CapOrgGerenciaListaFragment;
+import com.jcuentas.inleggo.ui.fragment.CapturaNuevoFragment2;
+import com.jcuentas.inleggo.R;
 
 
 public class MainActivityPrincipal extends AppCompatActivity {
@@ -77,7 +79,7 @@ private String drawerTitle;
                 fragment = CapOrgGerenciaListaFragment.newInstance();
                 break;
             default:
-                fragment = CapturaNuevoFragment2.newInstance("","");
+                fragment = CapturaNuevoFragment2.newInstance("", "");
                 break;
         }
         FragmentManager fragmentManager = getSupportFragmentManager();

@@ -1,4 +1,4 @@
-package com.jcuentas.inleggo;
+package com.jcuentas.inleggo.ui.fragment;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.jcuentas.inleggo.R;
 import com.jcuentas.inleggo.data.model.Ribot;
 import com.jcuentas.inleggo.data.remote.RibotsAdapter;
 

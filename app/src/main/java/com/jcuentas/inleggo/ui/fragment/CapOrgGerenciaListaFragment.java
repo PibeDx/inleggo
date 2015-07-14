@@ -1,4 +1,4 @@
-package com.jcuentas.inleggo;
+package com.jcuentas.inleggo.ui.fragment;
 
 
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.jcuentas.inleggo.ui.ItemDividerDecoration;
+import com.jcuentas.inleggo.R;
 import com.jcuentas.inleggo.data.model.Gerencia;
 import com.jcuentas.inleggo.ui.adapter.GerenciaAdapter;
 

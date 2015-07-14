@@ -1,4 +1,4 @@
-package com.jcuentas.inleggo;
+package com.jcuentas.inleggo.ui.activity;
 
 import android.net.Uri;
 import android.support.v4.app.FragmentManager;
@@ -6,6 +6,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.jcuentas.inleggo.ui.fragment.CapOrgGerenciaFragment;
+import com.jcuentas.inleggo.ui.fragment.CapturaNuevoFragment2;
+import com.jcuentas.inleggo.R;
 
 
 public class MainActivity extends ActionBarActivity implements CapturaNuevoFragment2.OnFragmentInteractionListener {

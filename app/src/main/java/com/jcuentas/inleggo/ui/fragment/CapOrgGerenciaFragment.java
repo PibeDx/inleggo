@@ -1,14 +1,15 @@
-package com.jcuentas.inleggo;
+package com.jcuentas.inleggo.ui.fragment;
 
 
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import com.jcuentas.inleggo.R;
 
 
 /**
