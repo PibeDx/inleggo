@@ -110,4 +110,12 @@
     <string-array name="ar_tipo_proyecto">
         <item>Ninguno</item>
     </string-array>
+    <string name="title_activity_login">Iniciar Sesión</string>
+    <string name="hint_user">Usuario</string>
+    <string name="hint_pass">Contraseña</string>
+    <string name="text_iniciar_sesion">Iniciar Sesión</string>
+    <string name="text_olvido_pass">¿Olvidó su contraseña?</string>
+    <string name="text_no_tiene_cuenta">¿No tienes una cuenta?</string>
+    <string name="text_crea_cuenta">Crear</string>
+    <string name="title_activity_splash">SplashActivity</string>
 </resources>

@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.jcuentas.inleggo.LoginActivity">
+
+
+    <ImageView
+        android:id="@+id/imv_logo"
+        android:src="@drawable/material_background"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:transitionName="imageViewLogo"
+        android:layout_height="@dimen/logo_login_height" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_store"
+            android:drawablePadding="50dp"
+            android:hint="@string/hint_user" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_store"
+            android:drawablePadding="50dp"
+            android:hint="@string/hint_pass" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txv_olvido_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:padding="@dimen/button_login_sign"
+        android:text="@string/text_olvido_pass"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/btn_sign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/button_login_sign"
+            android:background="@color/primary"
+            android:text="@string/text_iniciar_sesion" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/txv_login_registrar"
+            android:layout_below="@id/btn_sign"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="4dp"
+                android:paddingRight="4dp"
+                android:text="@string/text_no_tiene_cuenta"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_crea_cuenta"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>
