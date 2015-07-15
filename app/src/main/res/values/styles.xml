@@ -41,4 +41,11 @@
 
 
 
+    <style name="AppTheme.MyAwesomeAnimation">
+        <item name="android:activityOpenEnterAnimation">@anim/zoom_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/zoom_in</item>
+        <item name="android:activityCloseEnterAnimation">@anim/zoom_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/zoom_in</item>
+    </style>
+
 </resources>

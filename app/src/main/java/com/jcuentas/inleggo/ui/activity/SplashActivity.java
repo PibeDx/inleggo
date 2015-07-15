@@ -45,6 +45,7 @@ public class SplashActivity extends ActionBarActivity {
 
             } else
                 startActivity(intent);
+            finish();
         }
     }
 }

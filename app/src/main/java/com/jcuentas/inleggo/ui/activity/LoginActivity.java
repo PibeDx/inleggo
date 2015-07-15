@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.transition.TransitionInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +19,7 @@ public class LoginActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= 21) {
-//            getWindow().setSharedElementEnterTransition(TransitionInflater.from(this).inflateTransition(R.transition.shared_element_transition_a));
+            getWindow().setSharedElementEnterTransition(TransitionInflater.from(this).inflateTransition(R.transition.shared_element_transition_login));
         }
         setContentView(R.layout.activity_login);
         btnLogin = (Button) findViewById(R.id.btn_sign);
@@ -28,8 +29,6 @@ public class LoginActivity extends ActionBarActivity {
                 startActivity(new Intent(LoginActivity.this, MainActivityPrincipal.class));
             }
         });
-
-
     }
 
     @Override
