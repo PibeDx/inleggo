@@ -1,4 +1,4 @@
-package com.jcuentas.inleggo;
+package com.jcuentas.inleggo.ui.activity;
 
 import android.content.Intent;
 import android.os.Build;
@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.jcuentas.inleggo.ui.activity.MainActivityPrincipal;
+import com.jcuentas.inleggo.R;
 
 
 public class LoginActivity extends ActionBarActivity {

@@ -1,4 +1,4 @@
-package com.jcuentas.inleggo;
+package com.jcuentas.inleggo.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.transition.TransitionInflater;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.jcuentas.inleggo.R;
 
 
 public class SplashActivity extends ActionBarActivity {
