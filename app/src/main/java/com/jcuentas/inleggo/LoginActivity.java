@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.jcuentas.inleggo.ui.activity.MainActivityPrincipal;
+
 
 public class LoginActivity extends ActionBarActivity {
     Button btnLogin;

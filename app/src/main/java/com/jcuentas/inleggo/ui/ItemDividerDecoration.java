@@ -21,7 +21,7 @@ import com.jcuentas.inleggo.R;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * <p>
- * Created by Pedro Hern·ndez on 07/2015.
+ * Created by Pedro Hern√°ndez on 07/2015.
  */
 public class ItemDividerDecoration extends RecyclerView.ItemDecoration {
     private Drawable mDivider;
