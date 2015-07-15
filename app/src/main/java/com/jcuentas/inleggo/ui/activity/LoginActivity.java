@@ -19,7 +19,7 @@ public class LoginActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= 21) {
-            getWindow().setSharedElementEnterTransition(TransitionInflater.from(this).inflateTransition(R.transition.shared_element_transition_a));
+//            getWindow().setSharedElementEnterTransition(TransitionInflater.from(this).inflateTransition(R.transition.shared_element_transition_a));
         }
         setContentView(R.layout.activity_login);
         btnLogin = (Button) findViewById(R.id.btn_sign);
@@ -29,6 +29,7 @@ public class LoginActivity extends ActionBarActivity {
                 startActivity(new Intent(LoginActivity.this, MainActivityPrincipal.class));
             }
         });
+
 
     }
 
@@ -52,5 +53,10 @@ public class LoginActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        finish();
     }
 }
