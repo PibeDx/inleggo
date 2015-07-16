@@ -5,4 +5,6 @@
     <dimen name="logo_login_height">220dp</dimen>
     <dimen name="button_login_sign">6dp</dimen>
     <dimen name="txv_login_registrar">4dp</dimen>
+    <dimen name="item_cap_org_gerencia_container">5dp</dimen>
+    <dimen name="txv_item_cap">4dp</dimen>
 </resources>
