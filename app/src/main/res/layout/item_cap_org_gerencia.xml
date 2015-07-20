@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
+        android:padding="@dimen/item_cap_org_gerencia_container"
         android:orientation="horizontal">
 
         <ImageView
@@ -23,6 +24,7 @@
 
         <TextView
             android:id="@+id/txv_item"
+            android:paddingLeft="@dimen/txv_item_cap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Medium Text"
