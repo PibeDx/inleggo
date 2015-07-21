@@ -20,17 +20,17 @@ public class Server {
 
     @SerializedName(JsonKeys.SERVER_ID)
     @DatabaseField(columnName = ID)
-    public String mId;
+    public int mId;
 
     @SerializedName(JsonKeys.SERVER_NO_EMPRESA)
     @DatabaseField(columnName = NO_EMPRESA)
     public String mNoEmpresa;
 
-    public String getId() {
+    public int getId() {
         return mId;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         mId = id;
     }
 
