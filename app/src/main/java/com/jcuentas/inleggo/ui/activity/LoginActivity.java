@@ -25,7 +25,6 @@ public class LoginActivity extends ActionBarActivity  {
     public static final String TAG = "LoginActivity";
     Button btnLogin;
     MaterialSpinner mSpServer;
-    ServerAdapter mServerAdapter;
     Activity mActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

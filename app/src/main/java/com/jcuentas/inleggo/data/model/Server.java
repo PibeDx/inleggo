@@ -13,7 +13,7 @@ import com.jcuentas.inleggo.io.JsonKeys;
  */
 
 @DatabaseTable
-public class Servers {
+public class Server {
     public static final String ID = "idServers";
     public static final String NO_EMPRESA = "noEmpresa";
 
@@ -42,8 +42,8 @@ public class Servers {
         mNoEmpresa = noEmpresa;
     }
 
-    public static Servers buildServersFromJson(JsonObject artistData) {
+    public static Server buildServersFromJson(JsonObject artistData) {
         Gson gson = new Gson();
-        return gson.fromJson(artistData, Servers.class);
+        return gson.fromJson(artistData, Server.class);
     }
 }

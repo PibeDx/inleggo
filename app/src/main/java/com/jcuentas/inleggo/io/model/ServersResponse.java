@@ -2,7 +2,7 @@ package com.jcuentas.inleggo.io.model;
 
 import com.google.gson.annotations.SerializedName;
 import com.jcuentas.inleggo.io.JsonKeys;
-import com.jcuentas.inleggo.data.model.Servers;
+import com.jcuentas.inleggo.data.model.Server;
 
 import java.util.ArrayList;
 
@@ -12,12 +12,12 @@ import java.util.ArrayList;
  */
 public class ServersResponse {
     @SerializedName(JsonKeys.SERVER_RESPONSE)
-    private ArrayList<Servers> mServers;
-    public ArrayList<Servers> getServers() {
+    private ArrayList<Server> mServers;
+    public ArrayList<Server> getServers() {
         return mServers;
     }
 
-    public void setServers(ArrayList<Servers> servers) {
+    public void setServers(ArrayList<Server> servers) {
         mServers = servers;
     }
 

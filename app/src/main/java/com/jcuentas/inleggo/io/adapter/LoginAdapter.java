@@ -4,7 +4,7 @@ package com.jcuentas.inleggo.io.adapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jcuentas.inleggo.BuildConfig;
-import com.jcuentas.inleggo.data.model.Servers;
+import com.jcuentas.inleggo.data.model.Server;
 import com.jcuentas.inleggo.io.deserializer.LoginDeserializer;
 import com.jcuentas.inleggo.io.model.ServersResponse;
 import com.jcuentas.inleggo.io.service.LoginService;
@@ -36,7 +36,7 @@ public class LoginAdapter {
 
     private static GsonConverter buildServersApiGsonConverter(){
         Gson gsonConfig = new GsonBuilder()
-                .registerTypeAdapter(Servers.class, new LoginDeserializer())
+                .registerTypeAdapter(Server.class, new LoginDeserializer())
                 .create();
         return new GsonConverter(gsonConfig);
     }

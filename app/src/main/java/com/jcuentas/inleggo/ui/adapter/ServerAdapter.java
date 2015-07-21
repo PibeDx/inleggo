@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.jcuentas.inleggo.data.model.Servers;
+import com.jcuentas.inleggo.data.model.Server;
 
 import java.util.ArrayList;
 
@@ -16,14 +16,14 @@ import java.util.ArrayList;
  * Created by Jose Cuentas Turpo on 21/07/2015 - 04:23 PM.
  * E-mail: jcuentast@gmail.com
  */
-public class ServerAdapter extends ArrayAdapter<Servers> {
+public class ServerAdapter extends ArrayAdapter<Server> {
     private Context mContext;
     private int mResource;
-    private ArrayList<Servers> mValues;
+    private ArrayList<Server> mValues;
     private LayoutInflater mInflater;
 
     public ServerAdapter(Context context, int textViewResourceId,
-                         ArrayList<Servers> values) {
+                         ArrayList<Server> values) {
         super(context, textViewResourceId, values);
         mContext = context;
         this.mValues =  values;
@@ -34,7 +34,7 @@ public class ServerAdapter extends ArrayAdapter<Servers> {
         return mValues.size();
     }
 
-    public Servers getItem(int position) {
+    public Server getItem(int position) {
 //		return mValues[position];
         return mValues.get(position);
     }
