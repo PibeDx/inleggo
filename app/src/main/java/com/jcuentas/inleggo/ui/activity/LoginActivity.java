@@ -1,6 +1,7 @@
 package com.jcuentas.inleggo.ui.activity;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,9 +13,20 @@ import android.view.View;
 import android.widget.Button;
 
 import com.jcuentas.inleggo.R;
+import com.jcuentas.inleggo.io.adapter.LoginAdapter;
+import com.jcuentas.inleggo.io.model.ServersResponse;
+import com.jcuentas.inleggo.ui.adapter.ServerAdapter;
 
-public class LoginActivity extends ActionBarActivity {
+import fr.ganfra.materialspinner.MaterialSpinner;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+
+public class LoginActivity extends ActionBarActivity  {
+    public static final String TAG = "LoginActivity";
     Button btnLogin;
+    MaterialSpinner mSpServer;
+    ServerAdapter mServerAdapter;
+    Activity mActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +34,8 @@ public class LoginActivity extends ActionBarActivity {
             getWindow().setSharedElementEnterTransition(TransitionInflater.from(this).inflateTransition(R.transition.shared_element_transition_login));
         }
         setContentView(R.layout.activity_login);
+        mActivity=this;
+        mSpServer = (MaterialSpinner)findViewById(R.id.sp_servidor);
         btnLogin = (Button) findViewById(R.id.btn_sign);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,4 +71,20 @@ public class LoginActivity extends ActionBarActivity {
 //        super.onBackPressed();
         finish();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        LoginAdapter.getServers()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<ServersResponse>() {
+                    @Override
+                    public void call(ServersResponse serversResponse) {
+                        ServerAdapter adapter = new ServerAdapter(mActivity,android.R.layout.simple_spinner_item, serversResponse.getServers());
+                        mSpServer.setAdapter(adapter);
+                    }
+                });
+    }
+
+
 }

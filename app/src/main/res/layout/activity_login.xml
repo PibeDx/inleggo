@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/login_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -23,7 +24,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_store"
+            android:drawableRight="@drawable/ic_store"
             android:drawablePadding="50dp"
             android:hint="@string/hint_user" />
     </android.support.design.widget.TextInputLayout>
@@ -36,10 +37,16 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_store"
+            android:drawableRight="@drawable/ic_store"
             android:drawablePadding="50dp"
             android:hint="@string/hint_pass" />
     </android.support.design.widget.TextInputLayout>
+
+    <fr.ganfra.materialspinner.MaterialSpinner
+        android:id="@+id/sp_servidor"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:ms_hint="@string/hint_select_server" />
 
     <TextView
         android:id="@+id/txv_olvido_pass"
