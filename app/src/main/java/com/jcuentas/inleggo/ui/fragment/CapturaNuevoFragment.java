@@ -12,15 +12,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.jcuentas.inleggo.R;
-import com.jcuentas.inleggo.data.model.Ribot;
-import com.jcuentas.inleggo.data.remote.RibotsAdapter;
-
-import java.util.List;
+import com.jcuentas.inleggo.io.adapter.GerenciaAdapter;
+import com.jcuentas.inleggo.io.model.GerenciaResponse;
 
 import fr.ganfra.materialspinner.MaterialSpinner;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 
 
 /**
@@ -31,7 +28,8 @@ import retrofit.client.Response;
  * Use the {@link CapturaNuevoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CapturaNuevoFragment extends Fragment implements Callback<List<Ribot>>{
+//public class CapturaNuevoFragment extends Fragment implements Callback<List<Ribot>>{
+public class CapturaNuevoFragment extends Fragment {
 
     public static final String TAG = "CapturaNuevoFragment";
     // TODO: Rename parameter arguments, choose names that match
@@ -119,18 +117,27 @@ public class CapturaNuevoFragment extends Fragment implements Callback<List<Ribo
     @Override
     public void onResume() {
         super.onResume();
-        RibotsAdapter.getApiServiceJC().getRibots(this);
+        GerenciaAdapter.getGerencias("inleggo_test_2014")
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Action1<GerenciaResponse>() {
+                    @Override
+                    public void call(GerenciaResponse gerenciaResponse) {
+                        Log.i(TAG, "asdasd: "+gerenciaResponse.getGerencias().size());
+                    }
+                });
+
+
     }
 
-    @Override
-    public void failure(RetrofitError error) {
-
-    }
-
-    @Override
-    public void success(List<Ribot> ribots, Response response) {
-        Log.d(TAG,"cantidad: "+ribots.size());
-    }
+//    @Override
+//    public void failure(RetrofitError error) {
+//
+//    }
+//
+//    @Override
+//    public void success(List<Ribot> ribots, Response response) {
+//        Log.d(TAG,"cantidad: "+ribots.size());
+//    }
 
     /**
      * This interface must be implemented by activities that contain this

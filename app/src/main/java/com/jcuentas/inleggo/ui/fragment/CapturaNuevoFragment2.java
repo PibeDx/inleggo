@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.jcuentas.inleggo.R;
-import com.jcuentas.inleggo.data.model.Ribot;
+import com.jcuentas.inleggo.data.model.Gerencia;
 import com.jcuentas.inleggo.data.remote.RibotsImpl;
 import com.jcuentas.inleggo.view.RibotView;
 
@@ -160,12 +160,13 @@ public class CapturaNuevoFragment2 extends Fragment  implements RibotView {
     @Override
     public void setSp1(List list) {
         String[] ITEMS = new String[list.size()];
-        List<Ribot> lista = list;
+        List<Gerencia> lista = list;
         int i=0;
-        for (Ribot ribot : lista) {
-            ITEMS[i]=lista.get(i).id;
+        for (Gerencia gerencia : lista) {
+            ITEMS[i]=lista.get(i).getNoGerencia();
             i++;
         }
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, ITEMS);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mspTipoCaptura.setAdapter(adapter);
