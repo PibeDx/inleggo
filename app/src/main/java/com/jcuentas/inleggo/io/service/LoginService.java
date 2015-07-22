@@ -15,5 +15,6 @@ import rx.Observable;
 public interface LoginService {
 
     @GET(Constantes.URL_LOGIN_SERVERS)
-    Observable<ServersResponse> getServers(@Query(Constantes.PARAN_USER) String user, @Query(Constantes.PARAN_PASS) String pass);
+    Observable<ServersResponse> getServers(@Query(Constantes.PARAN_USER) String user,
+                                           @Query(Constantes.PARAN_PASS) String pass);
 }
