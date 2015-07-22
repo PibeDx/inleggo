@@ -11,6 +11,7 @@ public class JsonKeys {
     public static final String SERVER_NO_EMPRESA = "empresa";
 
 
-
-
+    public static final String GERENCIA_ID = "id" ;
+    public static final String GERENCIA_NAME = "nombre";
+    public static final String GERENCIA_RESPONSE = "gerencia";
 }
