@@ -2,6 +2,7 @@ package com.jcuentas.inleggo.interactor.impl;
 
 import android.util.Log;
 
+import com.jcuentas.inleggo.data.db.DBHelper;
 import com.jcuentas.inleggo.interactor.GerenciaInteractor;
 import com.jcuentas.inleggo.io.adapter.GerenciaAdapter;
 import com.jcuentas.inleggo.io.model.GerenciaResponse;
@@ -15,6 +16,14 @@ import rx.android.schedulers.AndroidSchedulers;
  * E-mail: jcuentast@gmail.com
  */
 public class GerenciaInteractorImpl  implements GerenciaInteractor{
+
+    DBHelper mHelper;
+
+
+    public GerenciaInteractorImpl(DBHelper helper) {
+        mHelper = helper;
+    }
+
     public static final String TAG = "GerenciaInteractorImpl";
     @Override
     public void cargarSP(GerenciaView gerenciaView) {
@@ -56,4 +65,34 @@ public class GerenciaInteractorImpl  implements GerenciaInteractor{
                     }
                 });
     }
+
+
+
+    void saveSQLiteGerencia(){
+
+    }
+
+//    private void EjecutarServicioServer() {
+//        LoginAdapter.getServers()
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Action1<ServersResponse>() {
+//                    @Override
+//                    public void call(ServersResponse serversResponse) {
+//                        //Insertamos Datos
+//                        DBInsertarServer(serversResponse);
+//                        llenarSpServer(serversResponse.getServers());
+//                    }
+//                });
+//    }
+//
+//    private void DBInsertarServer(ServersResponse serversResponse) {
+//        ArrayList<Server> servers =serversResponse.getServers();
+//        for (Server server : servers) {
+//            mServerDao.crear(server);
+//        }
+//    }
+//    private void llenarSpServer(ArrayList<Server> servers){
+//        ServerAdapter adapter = new ServerAdapter(mActivity, android.R.layout.simple_spinner_item, servers);
+//        mSpServer.setAdapter(adapter);
+//    }
 }

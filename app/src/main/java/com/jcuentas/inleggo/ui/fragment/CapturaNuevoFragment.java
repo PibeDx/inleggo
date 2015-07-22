@@ -11,8 +11,8 @@ import android.widget.Spinner;
 
 import com.jcuentas.inleggo.R;
 import com.jcuentas.inleggo.data.model.Gerencia;
-import com.jcuentas.inleggo.interactor.GerenciaInteractor;
-import com.jcuentas.inleggo.interactor.impl.GerenciaInteractorImpl;
+import com.jcuentas.inleggo.presenter.GerenciaPresenter;
+import com.jcuentas.inleggo.presenter.impl.GerenciaPresenterImpl;
 import com.jcuentas.inleggo.view.GerenciaView;
 
 import java.util.List;
@@ -26,6 +26,7 @@ public class CapturaNuevoFragment extends Fragment implements GerenciaView {
 
     private MaterialSpinner mspTipoCaptura, mspTipoSede, mspTipoGerencia, mspTipoArea, mspTipoEquipo, mspTipoLocal, mspTipoPiso, mspTipoUbicacion, mspTipoUsuario, mspTipoProyecto;
     private Spinner spTest1;
+    private GerenciaPresenter mGerenciaPresenter;
 
     public static CapturaNuevoFragment newInstance() {
         CapturaNuevoFragment fragment = new CapturaNuevoFragment();
@@ -81,8 +82,10 @@ public class CapturaNuevoFragment extends Fragment implements GerenciaView {
     @Override
     public void onResume() {
         super.onResume();
-        GerenciaInteractor gerenciaInteractor = new GerenciaInteractorImpl();
-        gerenciaInteractor.cargarSP(this);
+        mGerenciaPresenter = new GerenciaPresenterImpl(this);
+        mGerenciaPresenter.validateCargaInfo();
+//        GerenciaInteractor gerenciaInteractor = new GerenciaInteractorImpl();
+//        gerenciaInteractor.cargarSP(this);
 
     }
 
