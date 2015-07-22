@@ -16,7 +16,7 @@ import android.view.MenuItem;
 import com.jcuentas.inleggo.R;
 import com.jcuentas.inleggo.ui.fragment.CapOrgGerenciaFragment;
 import com.jcuentas.inleggo.ui.fragment.CapOrgGerenciaListaFragment;
-import com.jcuentas.inleggo.ui.fragment.CapturaNuevoFragment2;
+import com.jcuentas.inleggo.ui.fragment.CapturaNuevoFragment;
 
 
 public class MainActivityPrincipal extends AppCompatActivity {
@@ -79,7 +79,7 @@ private String drawerTitle;
                 fragment = CapOrgGerenciaListaFragment.newInstance();
                 break;
             default:
-                fragment = CapturaNuevoFragment2.newInstance("", "");
+                fragment = CapturaNuevoFragment.newInstance();
                 break;
         }
         FragmentManager fragmentManager = getSupportFragmentManager();
