@@ -42,8 +42,8 @@ public class Server {
         mNoEmpresa = noEmpresa;
     }
 
-    public static Server buildServersFromJson(JsonObject artistData) {
+    public static Server buildServersFromJson(JsonObject serverData) {
         Gson gson = new Gson();
-        return gson.fromJson(artistData, Server.class);
+        return gson.fromJson(serverData, Server.class);
     }
 }

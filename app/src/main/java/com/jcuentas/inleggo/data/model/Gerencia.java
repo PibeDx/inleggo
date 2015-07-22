@@ -1,32 +1,47 @@
 package com.jcuentas.inleggo.data.model;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.annotations.SerializedName;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
+import com.jcuentas.inleggo.io.JsonKeys;
+
 /**
  * Created by Jose Cuentas Turpo on 13/07/2015 - 06:12 PM.
  * E-mail: jcuentast@gmail.com
  */
+@DatabaseTable
 public class Gerencia {
-    private int idResourceImage;
-    private String deItem;
 
+    public static final String ID = "idGerencia";
+    public static final String NO_GERENCIA = "noGerencia";
 
-    public Gerencia(String deItem, int idResourceImage) {
-        this.deItem = deItem;
-        this.idResourceImage = idResourceImage;
+    @SerializedName(JsonKeys.GERENCIA_ID)
+    @DatabaseField(columnName = ID)
+    private int mId;
+    @SerializedName(JsonKeys.GERENCIA_NAME)
+    @DatabaseField(columnName = NO_GERENCIA)
+    private String mNoGerencia;
+
+    public int getId() {
+        return mId;
     }
 
-    public String getDeItem() {
-        return deItem;
+    public void setId(int id) {
+        mId = id;
     }
 
-    public void setDeItem(String deItem) {
-        this.deItem = deItem;
+    public String getNoGerencia() {
+        return mNoGerencia;
     }
 
-    public int getIdResourceImage() {
-        return idResourceImage;
+    public void setNoGerencia(String noGerencia) {
+        mNoGerencia = noGerencia;
     }
 
-    public void setIdResourceImage(int idResourceImage) {
-        this.idResourceImage = idResourceImage;
+    public static Gerencia buildGerenciaFromJson(JsonObject gerenciaData) {
+        return new Gson().fromJson(gerenciaData, Gerencia.class);
     }
+
 }
