@@ -41,7 +41,7 @@ public abstract class BaseDao<E, K> {
         mDao = null;
     }
 
-    public abstract long crear(E entidad) throws SQLException;
+    public abstract long crear(E entidad);
 
     public abstract long actualizar(E entidad);
 

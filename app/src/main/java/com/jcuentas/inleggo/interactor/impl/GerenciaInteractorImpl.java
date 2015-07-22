@@ -1,12 +1,17 @@
 package com.jcuentas.inleggo.interactor.impl;
 
+import android.app.Activity;
 import android.util.Log;
 
 import com.jcuentas.inleggo.data.db.DBHelper;
+import com.jcuentas.inleggo.data.db.dao.GerenciaDao;
+import com.jcuentas.inleggo.data.model.Gerencia;
 import com.jcuentas.inleggo.interactor.GerenciaInteractor;
 import com.jcuentas.inleggo.io.adapter.GerenciaAdapter;
 import com.jcuentas.inleggo.io.model.GerenciaResponse;
 import com.jcuentas.inleggo.view.GerenciaView;
+
+import java.util.ArrayList;
 
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
@@ -18,32 +23,51 @@ import rx.android.schedulers.AndroidSchedulers;
 public class GerenciaInteractorImpl  implements GerenciaInteractor{
 
     DBHelper mHelper;
+    GerenciaDao mGerenciaDao;
+    GerenciaView mGerenciaView;
 
 
-    public GerenciaInteractorImpl(DBHelper helper) {
-        mHelper = helper;
+    public GerenciaInteractorImpl(Activity activity,GerenciaView gerenciaView) {
+        mHelper = new DBHelper(activity);
+        mGerenciaDao = new GerenciaDao(mHelper, Gerencia.class);
     }
 
     public static final String TAG = "GerenciaInteractorImpl";
     @Override
-    public void cargarSP(GerenciaView gerenciaView) {
-        cargarGerencia(gerenciaView);
+    public void cargarSP() {
+        cargarGerencia();
         //gerenciaView.setMensaje();
-        gerenciaView.setListCaptura();
-        gerenciaView.setListSede();
+        mGerenciaView.setListCaptura();
+        mGerenciaView.setListSede();
         //gerenciaView.setListGerencia();
-        gerenciaView.setListArea();
-        gerenciaView.setListEquipo();
-        gerenciaView.setListLocal();
-        gerenciaView.setListPiso();
-        gerenciaView.setListUbicacion();
-        gerenciaView.setListUsuario();
-        gerenciaView.setListProyecto();
+        mGerenciaView.setListArea();
+        mGerenciaView.setListEquipo();
+        mGerenciaView.setListLocal();
+        mGerenciaView.setListPiso();
+        mGerenciaView.setListUbicacion();
+        mGerenciaView.setListUsuario();
+        mGerenciaView.setListProyecto();
 
 
     }
 
-    void cargarGerencia(final GerenciaView gerenciaView){
+    void cargarGerencia(){
+        ArrayList<Gerencia> gerencias = (ArrayList<Gerencia>) mGerenciaDao.obtenerTodos();
+        if (gerencias!= null)
+            if (gerencias.isEmpty()) {
+                Log.i(TAG, "onResume: Se llena la informacion por el Servicio");
+                ejecutarServicioServer();
+            } else {
+                Log.i(TAG, "onResume: Se llena la informacion por SQLite");
+                mGerenciaView.setListGerencia(gerencias);
+            }
+        else {
+            Log.i(TAG, "onResume: Null");
+        }
+    }
+
+
+    private void ejecutarServicioServer() {
         GerenciaAdapter.getGerencias("inleggo_test_2014")
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<GerenciaResponse>() {
@@ -60,39 +84,17 @@ public class GerenciaInteractorImpl  implements GerenciaInteractor{
                     @Override
                     public void onNext(GerenciaResponse gerenciaResponse) {
                         Log.i(TAG, "asdasd: " + gerenciaResponse.getGerencias().size());
-                        gerenciaView.setListGerencia(gerenciaResponse.getGerencias());
-                        gerenciaView.setMensaje(""+gerenciaResponse.getGerencias().size());
+                        DBInsertarGerencia(gerenciaResponse);
+                        mGerenciaView.setListGerencia(gerenciaResponse.getGerencias());
                     }
                 });
     }
 
-
-
-    void saveSQLiteGerencia(){
-
+    private void DBInsertarGerencia(GerenciaResponse gerenciaResponse) {
+        ArrayList<Gerencia> gerencias =gerenciaResponse.getGerencias();
+        for (Gerencia gerencia : gerencias) {
+            mGerenciaDao.crear(gerencia);
+        }
     }
 
-//    private void EjecutarServicioServer() {
-//        LoginAdapter.getServers()
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Action1<ServersResponse>() {
-//                    @Override
-//                    public void call(ServersResponse serversResponse) {
-//                        //Insertamos Datos
-//                        DBInsertarServer(serversResponse);
-//                        llenarSpServer(serversResponse.getServers());
-//                    }
-//                });
-//    }
-//
-//    private void DBInsertarServer(ServersResponse serversResponse) {
-//        ArrayList<Server> servers =serversResponse.getServers();
-//        for (Server server : servers) {
-//            mServerDao.crear(server);
-//        }
-//    }
-//    private void llenarSpServer(ArrayList<Server> servers){
-//        ServerAdapter adapter = new ServerAdapter(mActivity, android.R.layout.simple_spinner_item, servers);
-//        mSpServer.setAdapter(adapter);
-//    }
 }

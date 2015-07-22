@@ -1,5 +1,7 @@
 package com.jcuentas.inleggo.presenter.impl;
 
+import android.app.Activity;
+
 import com.jcuentas.inleggo.interactor.GerenciaInteractor;
 import com.jcuentas.inleggo.interactor.impl.GerenciaInteractorImpl;
 import com.jcuentas.inleggo.presenter.GerenciaPresenter;
@@ -12,13 +14,13 @@ import com.jcuentas.inleggo.view.GerenciaView;
 public class GerenciaPresenterImpl implements GerenciaPresenter {
     GerenciaView mGerenciaView;
     GerenciaInteractor mGerenciaInteractor;
-    public GerenciaPresenterImpl(GerenciaView gerenciaView) {
+    public GerenciaPresenterImpl(GerenciaView gerenciaView, Activity activity) {
         mGerenciaView = gerenciaView;
-        mGerenciaInteractor= new GerenciaInteractorImpl();
+        mGerenciaInteractor= new GerenciaInteractorImpl(activity,gerenciaView);
     }
 
     @Override
     public void validateCargaInfo() {
-        mGerenciaInteractor.cargarSP(mGerenciaView);
+        mGerenciaInteractor.cargarSP();
     }
 }

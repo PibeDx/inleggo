@@ -3,27 +3,29 @@ package com.jcuentas.inleggo.data.db.dao;
 import android.database.Cursor;
 
 import com.jcuentas.inleggo.data.db.DBHelper;
+import com.jcuentas.inleggo.data.model.Gerencia;
 
 import org.json.JSONArray;
 
 import java.util.List;
 
 /**
- * Created by Jose Cuentas Turpo on 21/07/2015 - 05:07 PM.
+ * Created by Jose Cuentas Turpo on 22/07/2015 - 06:13 PM.
  * E-mail: jcuentast@gmail.com
  */
-public class DataBaseDao extends BaseDao<BaseDao, Integer> {
-    public DataBaseDao(DBHelper dbHelper, Class<BaseDao> c) {
+public class GerenciaDao extends BaseDao<Gerencia, Integer> {
+    public GerenciaDao(DBHelper dbHelper, Class<Gerencia> c) {
         super(dbHelper, c);
     }
 
     @Override
-    public long actualizar(BaseDao entidad) {
+    public long actualizar(Gerencia entidad) {
         return 0;
     }
 
     @Override
-    public long crear(BaseDao entidad)  {
+    public long crear(Gerencia entidad)  {
+
         return 0;
     }
 
@@ -33,12 +35,12 @@ public class DataBaseDao extends BaseDao<BaseDao, Integer> {
     }
 
     @Override
-    public BaseDao obtenerPorId(Integer llave) {
+    public Gerencia obtenerPorId(Integer llave) {
         return null;
     }
 
     @Override
-    public List<BaseDao> obtenerTodos() {
+    public List<Gerencia> obtenerTodos() {
         return null;
     }
 
@@ -53,7 +55,7 @@ public class DataBaseDao extends BaseDao<BaseDao, Integer> {
     }
 
     @Override
-    protected BaseDao obtenerDesdeCursor(Cursor cursor) {
+    protected Gerencia obtenerDesdeCursor(Cursor cursor) {
         return null;
     }
 }

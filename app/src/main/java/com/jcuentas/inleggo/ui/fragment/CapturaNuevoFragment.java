@@ -28,6 +28,8 @@ public class CapturaNuevoFragment extends Fragment implements GerenciaView {
     private Spinner spTest1;
     private GerenciaPresenter mGerenciaPresenter;
 
+
+
     public static CapturaNuevoFragment newInstance() {
         CapturaNuevoFragment fragment = new CapturaNuevoFragment();
         Bundle args = new Bundle();
@@ -66,6 +68,7 @@ public class CapturaNuevoFragment extends Fragment implements GerenciaView {
         mspTipoUbicacion= (MaterialSpinner)root.findViewById(R.id.sp_tipo_ubicacion);
         mspTipoUsuario= (MaterialSpinner)root.findViewById(R.id.sp_tipo_usuario);
         mspTipoProyecto= (MaterialSpinner)root.findViewById(R.id.sp_tipo_proyecto);
+
     }
 
     @Override
@@ -82,7 +85,7 @@ public class CapturaNuevoFragment extends Fragment implements GerenciaView {
     @Override
     public void onResume() {
         super.onResume();
-        mGerenciaPresenter = new GerenciaPresenterImpl(this);
+        mGerenciaPresenter = new GerenciaPresenterImpl(this, getActivity());
         mGerenciaPresenter.validateCargaInfo();
 //        GerenciaInteractor gerenciaInteractor = new GerenciaInteractorImpl();
 //        gerenciaInteractor.cargarSP(this);
