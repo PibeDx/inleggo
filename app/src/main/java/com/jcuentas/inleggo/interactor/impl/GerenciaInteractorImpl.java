@@ -30,6 +30,7 @@ public class GerenciaInteractorImpl  implements GerenciaInteractor{
     public GerenciaInteractorImpl(Activity activity,GerenciaView gerenciaView) {
         mHelper = new DBHelper(activity);
         mGerenciaDao = new GerenciaDao(mHelper, Gerencia.class);
+        mGerenciaView = gerenciaView;
     }
 
     public static final String TAG = "GerenciaInteractorImpl";
@@ -62,7 +63,8 @@ public class GerenciaInteractorImpl  implements GerenciaInteractor{
                 mGerenciaView.setListGerencia(gerencias);
             }
         else {
-            Log.i(TAG, "onResume: Null");
+            Log.i(TAG, "onResume: Se llena la informacion por el Servicio");
+            ejecutarServicioServer();
         }
     }
 
