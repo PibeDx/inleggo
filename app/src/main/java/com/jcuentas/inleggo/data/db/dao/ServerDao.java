@@ -16,7 +16,7 @@ import java.util.List;
  * E-mail: jcuentast@gmail.com
  */
 public class ServerDao extends BaseDao<Server, String> {
-    public static final String TAG = "ServerDao";
+//    public static final String TAG = "ServerDao";
 
     public ServerDao(DBHelper dbHelper, Class<Server> c) {
         super(dbHelper, c);
