@@ -1,12 +1,14 @@
 package com.jcuentas.inleggo.data.db.dao;
 
 import android.database.Cursor;
+import android.util.Log;
 
 import com.jcuentas.inleggo.data.db.DBHelper;
 import com.jcuentas.inleggo.data.model.Gerencia;
 
 import org.json.JSONArray;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -14,6 +16,7 @@ import java.util.List;
  * E-mail: jcuentast@gmail.com
  */
 public class GerenciaDao extends BaseDao<Gerencia, Integer> {
+//    public static final String TAG = "GerenciaDao";
     public GerenciaDao(DBHelper dbHelper, Class<Gerencia> c) {
         super(dbHelper, c);
     }
@@ -24,9 +27,15 @@ public class GerenciaDao extends BaseDao<Gerencia, Integer> {
     }
 
     @Override
-    public long crear(Gerencia entidad)  {
-
-        return 0;
+    public long crear(Gerencia entidad) {
+        long cantInsert = 0;
+        try {
+            getDao().create(entidad);
+            cantInsert = 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return cantInsert;
     }
 
     @Override
@@ -41,7 +50,15 @@ public class GerenciaDao extends BaseDao<Gerencia, Integer> {
 
     @Override
     public List<Gerencia> obtenerTodos() {
-        return null;
+        List<Gerencia> gerencias = null;
+        try {
+            gerencias = getDao().queryForAll();
+        } catch (SQLException e) {
+            Log.e(TAG, "obtenerTodos: Error al obtener informacion");
+            e.printStackTrace();
+        }
+        Log.i(TAG, "obtenerTodos: Obtener informacion");
+        return gerencias;
     }
 
     @Override
