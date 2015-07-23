@@ -16,14 +16,18 @@ import java.util.List;
  */
 public abstract class BaseDao<E, K> {
 
+
     private DBHelper mDBHelper;
     protected Dao<E, K> mDao;
     //	private E entidad;
     private Class<E> classEntidad;
+    protected final  String TAG  = this.getClass().getSimpleName();
+
 
     public BaseDao(DBHelper dbHelper, Class<E> c) {
         this.mDBHelper = dbHelper;
         classEntidad = c;
+//        TAG = this.getClass().getSimpleName();
     }
 
     protected DBHelper getDbHelper() {
