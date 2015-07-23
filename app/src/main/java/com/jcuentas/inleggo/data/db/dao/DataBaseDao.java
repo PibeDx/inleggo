@@ -1,30 +1,41 @@
 package com.jcuentas.inleggo.data.db.dao;
 
 import android.database.Cursor;
+import android.util.Log;
 
 import com.jcuentas.inleggo.data.db.DBHelper;
+import com.jcuentas.inleggo.data.model.DataBase;
 
 import org.json.JSONArray;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
  * Created by Jose Cuentas Turpo on 21/07/2015 - 05:07 PM.
  * E-mail: jcuentast@gmail.com
  */
-public class DataBaseDao extends BaseDao<BaseDao, Integer> {
-    public DataBaseDao(DBHelper dbHelper, Class<BaseDao> c) {
+public class DataBaseDao extends BaseDao<DataBase, Integer>{
+    public DataBaseDao(DBHelper dbHelper, Class<DataBase> c) {
         super(dbHelper, c);
     }
 
     @Override
-    public long actualizar(BaseDao entidad) {
+    public long actualizar(DataBase entidad) {
         return 0;
     }
 
     @Override
-    public long crear(BaseDao entidad)  {
-        return 0;
+    public long crear(DataBase entidad) {
+        long cantInsert = 0;
+        try {
+            getDao().create(entidad);
+            cantInsert = 1;
+        } catch (SQLException e) {
+            Log.e(TAG, "crear:  Error");
+            e.printStackTrace();
+        }
+        return cantInsert;
     }
 
     @Override
@@ -33,13 +44,20 @@ public class DataBaseDao extends BaseDao<BaseDao, Integer> {
     }
 
     @Override
-    public BaseDao obtenerPorId(Integer llave) {
+    public DataBase obtenerPorId(Integer llave) {
         return null;
     }
 
     @Override
-    public List<BaseDao> obtenerTodos() {
-        return null;
+    public List<DataBase> obtenerTodos() {
+        List<DataBase> dataBases = null;
+        try {
+            dataBases = getDao().queryForAll();
+        } catch (SQLException e) {
+            Log.i(TAG, "obtenerTodos: Error");
+            e.printStackTrace();
+        }
+        return dataBases;
     }
 
     @Override
@@ -53,7 +71,7 @@ public class DataBaseDao extends BaseDao<BaseDao, Integer> {
     }
 
     @Override
-    protected BaseDao obtenerDesdeCursor(Cursor cursor) {
+    protected DataBase obtenerDesdeCursor(Cursor cursor) {
         return null;
     }
 }
