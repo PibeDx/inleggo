@@ -19,7 +19,7 @@ import java.sql.SQLException;
  */
 public class DBHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "db.inleggo.com";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -39,7 +39,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
     public void onUpgrade(SQLiteDatabase arg0, ConnectionSource arg1, int arg2,
                           int arg3) {
         try {
-			//TableUtils.dropTable(connectionSource, Server.class, true);
+			TableUtils.dropTable(connectionSource, Server.class, true);
             TableUtils.dropTable(connectionSource, Gerencia.class, true);
         } catch (SQLException e) {
             e.printStackTrace();

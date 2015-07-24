@@ -11,7 +11,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.jcuentas.inleggo.R;
 import com.jcuentas.inleggo.data.db.DBHelper;
@@ -19,21 +21,24 @@ import com.jcuentas.inleggo.data.db.dao.ServerDao;
 import com.jcuentas.inleggo.data.model.Server;
 import com.jcuentas.inleggo.io.adapter.LoginAdapter;
 import com.jcuentas.inleggo.io.model.ServersResponse;
+import com.jcuentas.inleggo.presenter.LoginPresenter;
+import com.jcuentas.inleggo.presenter.impl.LoginPresenterImpl;
 import com.jcuentas.inleggo.ui.adapter.ServerAdapter;
+import com.jcuentas.inleggo.view.LoginView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import fr.ganfra.materialspinner.MaterialSpinner;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 
-public class LoginActivity extends ActionBarActivity {
+public class LoginActivity extends ActionBarActivity implements LoginView{
     public static final String TAG = "LoginActivity";
+    LoginPresenter mLoginPresenter;
     Button btnLogin;
     MaterialSpinner mSpServer;
     Activity mActivity;
-    DBHelper mDBHelper;
-    ServerDao mServerDao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,16 +48,17 @@ public class LoginActivity extends ActionBarActivity {
         }
         setContentView(R.layout.activity_login);
         mActivity = this;
-        mDBHelper = new DBHelper(this);
-        mServerDao = new ServerDao(mDBHelper, Server.class);
         mSpServer = (MaterialSpinner) findViewById(R.id.sp_servidor);
         btnLogin = (Button) findViewById(R.id.btn_sign);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, MainActivityPrincipal.class));
+                mLoginPresenter.validateLogin("a", "a");
+//                startActivity(new Intent(LoginActivity.this, MainActivityPrincipal.class));
             }
         });
+
+
     }
 
     @Override
@@ -86,39 +92,52 @@ public class LoginActivity extends ActionBarActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        ArrayList<Server> servers = (ArrayList<Server>) mServerDao.obtenerTodos();
-        if (servers.isEmpty()) {
-            Log.i(TAG, "onResume: Se llena la informacion por el Servicio");
-            EjecutarServicioServer();
-        } else {
-            Log.i(TAG, "onResume: Se llena la informacion por SQLite");
-            llenarSpServer(servers);
-        }
+        mLoginPresenter = new LoginPresenterImpl((LoginView)this,(Activity)this);
+        mSpServer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                Log.d(TAG, "i: "+i);
+//                if (i!=-1) {
+                Server server = getSelectItemServere();
+                Log.d(TAG, (server!=null)? server.getNoEmpresa():"Selection");
+//                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
-    private void EjecutarServicioServer() {
-        LoginAdapter.getServers()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Action1<ServersResponse>() {
-                    @Override
-                    public void call(ServersResponse serversResponse) {
-                        //Insertamos Datos
-                        DBInsertarServer(serversResponse);
-                        llenarSpServer(serversResponse.getServers());
-                    }
-                });
+    @Override
+    public void goToMain() {
+        startActivity(new Intent(this,MainActivityPrincipal.class));
     }
 
-    private void DBInsertarServer(ServersResponse serversResponse) {
-        ArrayList<Server> servers =serversResponse.getServers();
-        for (Server server : servers) {
-            mServerDao.crear(server);
-        }
-    }
-    private void llenarSpServer(ArrayList<Server> servers){
-        ServerAdapter adapter = new ServerAdapter(mActivity, android.R.layout.simple_spinner_item, servers);
+    @Override
+    public void cargarServers(List servers) {
+        ServerAdapter adapter = new ServerAdapter(mActivity, android.R.layout.simple_spinner_item, (ArrayList<Server>)servers);
         mSpServer.setAdapter(adapter);
     }
 
+    @Override
+    public String obtenerSelectItemServers() {
+        return "as";
+    }
 
+    @Override
+    public void setMennsaje(String mensaje) {
+        Toast.makeText(getApplicationContext(),mensaje,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public Server getSelectItemServere() {
+        Server server = null;
+        Log.d(TAG, "i: "+mSpServer.getSelectedItemPosition());
+        if (mSpServer.getSelectedItemPosition()!=0) {
+            return (Server) mSpServer.getSelectedItem();
+        }
+        return  server;
+    }
 }
