@@ -23,7 +23,14 @@ public class GerenciaDao extends BaseDao<Gerencia, Integer> {
 
     @Override
     public long actualizar(Gerencia entidad) {
-        return 0;
+        int cantUpdate = 0;
+        try {
+            cantUpdate=getDao().update(entidad);
+        } catch (SQLException e) {
+            Log.e(TAG, "actualizar: Error");
+            e.printStackTrace();
+        }
+        return cantUpdate;
     }
 
     @Override
