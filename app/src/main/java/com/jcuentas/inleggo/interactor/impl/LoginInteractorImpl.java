@@ -1,19 +1,21 @@
 package com.jcuentas.inleggo.interactor.impl;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBar;
 import android.util.Log;
 
 import com.jcuentas.inleggo.data.db.DBHelper;
+import com.jcuentas.inleggo.data.db.dao.DataBaseDao;
 import com.jcuentas.inleggo.data.db.dao.ServerDao;
+import com.jcuentas.inleggo.data.model.DataBase;
 import com.jcuentas.inleggo.data.model.Server;
 import com.jcuentas.inleggo.interactor.LoginInteractor;
 import com.jcuentas.inleggo.io.adapter.LoginAdapter;
 import com.jcuentas.inleggo.io.model.ServersResponse;
-import com.jcuentas.inleggo.ui.adapter.ServerAdapter;
 import com.jcuentas.inleggo.view.LoginView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -27,12 +29,14 @@ public class LoginInteractorImpl implements LoginInteractor {
     LoginView mLoginView;
     DBHelper mDBHelper;
     ServerDao mServerDao;
+    DataBaseDao mDataBaseDao;
 
 
     public LoginInteractorImpl(LoginView loginView, Activity activity) {
         mLoginView = loginView;
         mDBHelper = new DBHelper(activity);
         mServerDao = new ServerDao(mDBHelper, Server.class);
+        mDataBaseDao = new DataBaseDao(mDBHelper, DataBase.class);
         validateServerInSQLite();
     }
 
@@ -75,6 +79,7 @@ public class LoginInteractorImpl implements LoginInteractor {
         for (Server server : servers) {
             mServerDao.crear(server);
         }
+        DBInsertarDataBase(); //Guardamos el registro de cuando se sincronizo la informacion
     }
 
     void validateServerInSQLite(){
@@ -91,7 +96,16 @@ public class LoginInteractorImpl implements LoginInteractor {
             Log.i(TAG, "validateServerInSQLite: Se llena la informacion por SQLite");
             mLoginView.cargarServers(servers);
         }
+    }
 
-
+    void DBInsertarDataBase(){
+        String formato = "yyyy-MM-dd HH:mm";
+        SimpleDateFormat formateador = new SimpleDateFormat(formato);
+        DataBase dataBase = new DataBase();
+        dataBase.setNoTable(Server.class.getSimpleName());
+        dataBase.setFeCreate(formateador.format(new Date()));
+        dataBase.setFeUltimaConexion(formateador.format(new Date()));
+        dataBase.setFeUpdateUltima(formateador.format(new Date()));
+        mDataBaseDao.crear(dataBase);
     }
 }

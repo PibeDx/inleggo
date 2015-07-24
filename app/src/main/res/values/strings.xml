@@ -119,4 +119,5 @@
     <string name="text_crea_cuenta">Crear</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="hint_select_server">Seleccione el servidor</string>
+    <string name="title_activity_MainActivityPrincipal">Menu</string>
 </resources>

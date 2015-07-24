@@ -1,12 +1,12 @@
 package com.jcuentas.inleggo.data.db;
 
 import android.content.Context;
-
 import android.database.sqlite.SQLiteDatabase;
 
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import com.jcuentas.inleggo.data.model.DataBase;
 import com.jcuentas.inleggo.data.model.Gerencia;
 import com.jcuentas.inleggo.data.model.Server;
 
@@ -19,7 +19,7 @@ import java.sql.SQLException;
  */
 public class DBHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "db.inleggo.com";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 7;
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -30,6 +30,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         try {
             TableUtils.createTableIfNotExists(connectionSource, Server.class);
             TableUtils.createTableIfNotExists(connectionSource, Gerencia.class);
+            TableUtils.createTableIfNotExists(connectionSource, DataBase.class);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -41,6 +42,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         try {
 			TableUtils.dropTable(connectionSource, Server.class, true);
             TableUtils.dropTable(connectionSource, Gerencia.class, true);
+            TableUtils.dropTable(connectionSource, DataBase.class, true);
         } catch (SQLException e) {
             e.printStackTrace();
         }
