@@ -16,6 +16,7 @@ import com.jcuentas.inleggo.view.LoginView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -80,6 +81,8 @@ public class LoginInteractorImpl implements LoginInteractor {
             mServerDao.crear(server);
         }
         DBInsertarDataBase(); //Guardamos el registro de cuando se sincronizo la informacion
+        //TODO: obtenerDataBase
+        DBObtenerDataBase();
     }
 
     void validateServerInSQLite(){
@@ -107,5 +110,19 @@ public class LoginInteractorImpl implements LoginInteractor {
         dataBase.setFeUltimaConexion(formateador.format(new Date()));
         dataBase.setFeUpdateUltima(formateador.format(new Date()));
         mDataBaseDao.crear(dataBase);
+    }
+
+    void DBObtenerDataBase(){
+        List<DataBase> dataBases= mDataBaseDao.obtenerTodos();
+        for (DataBase dataBase : dataBases) {
+            Log.d(TAG, "DBObtenerDataBase: getIdTable "+dataBase.getIdTable());
+            Log.d(TAG, "DBObtenerDataBase: getFeCreate "+dataBase.getFeCreate());
+            Log.d(TAG, "DBObtenerDataBase: getNoTable "+dataBase.getNoTable());
+            Log.d(TAG, "DBObtenerDataBase: getFeUpdateUltima "+dataBase.getFeUpdateUltima());
+            Log.d(TAG, "DBObtenerDataBase: getFeUltimaConexion "+dataBase.getFeUltimaConexion());
+
+        }
+
+
     }
 }

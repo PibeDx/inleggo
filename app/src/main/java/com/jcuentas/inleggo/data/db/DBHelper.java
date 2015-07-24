@@ -19,7 +19,7 @@ import java.sql.SQLException;
  */
 public class DBHelper extends OrmLiteSqliteOpenHelper {
     private static final String DATABASE_NAME = "db.inleggo.com";
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 8;
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
