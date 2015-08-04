@@ -16,5 +16,6 @@ public interface GerenciaService {
     @GET(Constantes.URL_CAPTURA_GERENCIA_LIST)
     Observable<GerenciaResponse> getGerencias (@Query(Constantes.PARAN_DB) String db,
                                                @Query(Constantes.PARAN_USER) String user,
-                                               @Query(Constantes.PARAN_PASS)String pass);
+                                               @Query(Constantes.PARAN_PASS)String pass,
+                                                @Query(Constantes.PARAN_OPERATION)String operation);
 }

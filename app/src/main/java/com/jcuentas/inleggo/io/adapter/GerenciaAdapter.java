@@ -28,7 +28,7 @@ public class GerenciaAdapter {
     }
     public static Observable<GerenciaResponse> getGerencias(String db){
         String [] token = ObtTok();
-        return getApiService().getGerencias(db, token[0], token[1]);
+        return getApiService().getGerencias(db, token[0], token[1], "list");
     }
 
     private static String[] ObtTok(){
